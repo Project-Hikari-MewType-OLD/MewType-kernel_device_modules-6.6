@@ -2,6 +2,7 @@
 /* PARTIAL: 16 observed registry/consumer bodies. Storage owners still absent. */
 #include <linux/kernel.h>
 #include <linux/sched.h>
+#include <linux/sched/cputime.h>
 #include "kernel/sched/sched.h"
 #include "metis_registry.h"
 

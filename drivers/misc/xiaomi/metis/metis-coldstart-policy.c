@@ -3,6 +3,7 @@
 #include <linux/bug.h>
 #include <linux/jiffies.h>
 #include <linux/sched.h>
+#include <linux/sched/cputime.h>
 #include "kernel/sched/sched.h"
 #include "metis_coldstart_policy.h"
 

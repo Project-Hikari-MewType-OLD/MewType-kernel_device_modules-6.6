@@ -6,6 +6,7 @@
 #include <linux/sched.h>
 #include <asm/cpufeature.h>
 #include <asm/thread_info.h>
+#include <linux/sched/cputime.h>
 #include <sched/sched.h>
 #include "metis-final-scheduler.h"
 #include "metis-final-owners.h"

@@ -3,6 +3,7 @@
 #include <linux/bug.h>
 #include <linux/jiffies.h>
 #include <linux/string.h>
+#include <linux/sched/cputime.h>
 #include "kernel/sched/sched.h"
 #include "metis_monitor.h"
 

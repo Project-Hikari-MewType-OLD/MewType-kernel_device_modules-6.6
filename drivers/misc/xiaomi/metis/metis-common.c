@@ -6,6 +6,7 @@
 #include <linux/mutex.h>
 #include <linux/rcupdate.h>
 #include <linux/rwsem.h>
+#include <linux/sched/cputime.h>
 #include "kernel/sched/sched.h"
 #include "metis_common.h"
 #include "metis_blocked.h"

@@ -7,6 +7,7 @@
 #include <linux/printk.h>
 #include <linux/sched.h>
 #include <linux/sched/task.h>
+#include <linux/sched/cputime.h>
 #include "kernel/sched/sched.h"
 #include "metis_cluster_boost.h"
 #include "metis_extra_controls.h"

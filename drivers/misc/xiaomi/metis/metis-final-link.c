@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: GPL-2.0-only
 /* Stock OS3.0.305 link algorithms. Native build/API/CFI/layout/runtime UNTESTED.
  * Only Xiaomi OEM payload offsets are retained; task/binder/futex use the
- * current canonical kernel definitions. Native rwsem_waiter is shared through
- * root's explicitly authorized internal kernel/locking/rwsem.h header move. */
+ * current canonical kernel definitions. The native rwsem_waiter is private to
+ * kernel/locking/rwsem.c; its recovered contract is declared below, matching
+ * the local definitions used by qi-hooks.c and task_turbo.h. */
 #include <linux/jiffies.h>
 #include <linux/kernel.h>
 #include <linux/list.h>
@@ -20,7 +21,6 @@
 #include <linux/uaccess.h>
 #include <drivers/android/binder_internal.h>
 #include <futex/futex.h>
-#include <kernel/locking/rwsem.h>
 #include <trace/hooks/binder.h>
 #include <trace/hooks/dtask.h>
 #include <trace/hooks/futex.h>
@@ -33,6 +33,20 @@
 #include "metis_wakeup.h"
 #include "metis-final-link.h"
 #include "metis-final-link-trace.h"
+
+/* Native rwsem waiter, recovered from kernel/locking/rwsem.c. */
+enum rwsem_waiter_type {
+	RWSEM_WAITING_FOR_WRITE,
+	RWSEM_WAITING_FOR_READ
+};
+
+struct rwsem_waiter {
+	struct list_head list;
+	struct task_struct *task;
+	enum rwsem_waiter_type type;
+	unsigned long timeout;
+	bool handoff_set;
+};
 
 #ifndef CONFIG_LIST_HARDENED
 extern bool __list_add_valid_or_report(struct list_head *new,
@@ -481,7 +495,8 @@ static void rwsem_link_after(struct list_head *new, struct list_head *prev)
 }
 
 /* .text+0x3868, virtual 0010c290. Canonical waiter comes from the root's
- * authorized kernel/locking/rwsem.h move, also included by native rwsem.c. */
+ * Uses the recovered native waiter contract declared at the top of this
+ * file. */
 void do_rwsem_list_insert(struct rwsem_waiter *waiter,
 		struct rw_semaphore *sem, bool *already_on_list, int priority)
 {

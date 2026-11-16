@@ -11,6 +11,7 @@
 #include <linux/sched/task.h>
 #include <linux/sysfs.h>
 #include <uapi/linux/sched/types.h>
+#include <linux/sched/cputime.h>
 #include <kernel/sched/sched.h>
 #include <binder_internal.h>
 #include <trace/hooks/binder.h>

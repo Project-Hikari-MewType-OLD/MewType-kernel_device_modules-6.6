@@ -40,5 +40,5 @@ void mi_rwsem_write_wait_finish_hook(void *unused, struct rw_semaphore *sem);
 void mi_lock_rwsem_wake_finish_hook(void *unused, struct rw_semaphore *sem);
 
 /* Remaining native waiter consumers are declared in metis-final-link.h;
- * kernel/locking/rwsem.h now shares rwsem.c's canonical waiter definition. */
+ * The recovered waiter contract lives in metis-final-link.c. */
 #endif

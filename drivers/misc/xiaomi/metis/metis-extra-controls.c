@@ -6,6 +6,7 @@
 #include <linux/ktime.h>
 #include <linux/moduleparam.h>
 #include <linux/sched.h>
+#include <linux/sched/cputime.h>
 #include "kernel/sched/sched.h"
 #include "metis_extra_controls.h"
 #include "metis_callbacks.h"

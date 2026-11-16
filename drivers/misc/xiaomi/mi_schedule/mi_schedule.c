@@ -16,6 +16,7 @@
 #include <linux/interrupt.h>
 #include <asm/unaligned.h>
 #include <trace/hooks/sched.h>
+#include <linux/sched/cputime.h>
 #include "kernel/sched/sched.h"
 #include "mi_schedule.h"
 

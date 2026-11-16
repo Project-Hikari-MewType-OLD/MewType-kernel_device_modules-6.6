@@ -3,6 +3,7 @@
  * Original stock bounds, unsigned arithmetic and history defects retained. */
 #include <linux/jiffies.h>
 #include <linux/string.h>
+#include <linux/sched/cputime.h>
 #include <sched/sched.h>
 #include "metis-final-scheduler.h"
 

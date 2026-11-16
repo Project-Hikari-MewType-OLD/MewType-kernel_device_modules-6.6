@@ -4,6 +4,7 @@
 #include <linux/panic_notifier.h>
 #include <linux/sched.h>
 #include <linux/string.h>
+#include <linux/sched/cputime.h>
 #include "kernel/sched/sched.h"
 #include "metis-final-control.h"
 

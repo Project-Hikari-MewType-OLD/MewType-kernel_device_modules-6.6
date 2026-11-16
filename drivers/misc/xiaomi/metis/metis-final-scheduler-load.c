@@ -5,6 +5,7 @@
 #include <linux/list.h>
 #include <linux/rbtree.h>
 #include <linux/rcupdate.h>
+#include <linux/sched/cputime.h>
 #include <sched/sched.h>
 #include <trace/hooks/sched.h>
 #include "metis-final-scheduler.h"

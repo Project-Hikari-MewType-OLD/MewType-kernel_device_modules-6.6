@@ -14,6 +14,7 @@
 #include <trace/hooks/sched.h>
 #include <trace/hooks/sys.h>
 #include <asm/cpufeature.h>
+#include <linux/sched/cputime.h>
 #include "kernel/sched/sched.h"
 #include "metis_wakeup.h"
 

@@ -49,7 +49,8 @@ void mi_futex_wait_end(void *data, unsigned int flags, u32 bitset);
 u32 task_prio_for_rwsem_insert(struct task_struct *task);
 
 /* Native waiter definition is now shared by root's explicitly authorized
- * internal header move, kernel/locking/rwsem.h. No private layout replica. */
+ * The native waiter contract is recovered locally in metis-final-link.c; this
+ * header only needs the forward declaration above. */
 void mi_rwsem_read_trylock_failed(void *data, struct rw_semaphore *sem,
 		long *count, int *ret);
 void mi_rwsem_list_add_hook(void *data, struct rwsem_waiter *waiter,

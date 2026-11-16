@@ -6,6 +6,7 @@
 #include <linux/rbtree.h>
 #include <linux/sched.h>
 #include <linux/tracepoint.h>
+#include <linux/sched/cputime.h>
 #include <sched/sched.h>
 #include "metis_common.h"
 #include "metis_coldstart.h"
